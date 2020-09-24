@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content="Microsoft FrontPage 5.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta name="Generator" content="Microsoft Word 10 (filtered)">
+
+  <title>"DoknSplitz"</title>
+  <style type="text/css">
+<!--
+  /* Font Definitions */
+  @font-face
+        {font-family:Verdana;
+        panose-1:2 11 6 4 3 5 4 4 2 4;}
+  /* Style Definitions */
+  p.MsoNormal, li.MsoNormal, div.MsoNormal
+        {margin:0in;
+        margin-bottom:.0001pt;
+        font-size:12.0pt;
+        font-family:"Times New Roman";}
+  @page Section1
+        {size:8.5in 11.0in;
+        margin:1.0in 1.25in 1.0in 1.25in;}
+  div.Section1
+        {page:Section1;}
+  -->
+  </style>
+  <style type="text/css">
+body.c11 {text-justify-trim:punctuation}
+  span.c10 {font-size: 8.0pt;font-family:Verdana;color:black}
+  span.c9 {font-size:8.0pt;font-family:Verdana; color:black}
+  span.c8 {font-size:8.0pt;font-family:Verdana;color:black}
+  p.c7 {font-weight: bold; text-autospace: none}
+  span.c6 {font-size:8.0pt; font-family:Verdana;color:navy}
+  p.c5 {text-autospace:none}
+  span.c4 {font-size:8.0pt; font-family:Verdana;color:black}
+  span.c3 {font-size:10.0pt;font-family:Verdana;color:#FF6600}
+  p.c2 {font-style: italic; font-weight: bold; text-align: center; text-autospace: none}
+  span.c1 {font-size:11.0pt;font-family:Verdana;color:#993300}
+  </style>
+</head>
+
+<body lang="EN-US" class='c11'>
+  <div class="Section1">
+    <p class="MsoNormal c2"><span class='c1'>"DoknSplitz"</span></p>
+
+    <p class="MsoNormal c2"><span class='c3'>SDI/MDI Forms Docking Project</span></p>
+
+    <p class="MsoNormal c5"><span class='c4'>&nbsp;</span></p>
+
+    <p class="MsoNormal c7"><span class='c6'>Introduction</span></p>
+
+    <p class="MsoNormal c5"><span lang="PT-BR" class='c8'>A supersized version of TheoZ's VB Control Manager</span><span class='c9'>(PSC txtCodeId=49621)</span><span lang="PT-BR" class='c10'>.&nbsp; DoknSplitz is an ActiveX control to allow resize, move, show/hide design time controls as well as provide runtime forms docking capability for SDI/MDI apps.&nbsp; All from one control!</span></p>
+
+    <p class="MsoNormal c5"><span lang="PT-BR" class='c8'>&nbsp;</span></p>
+
+    <p class="MsoNormal c7"><span class='c6'>History</span></p>
+
+    <p class="MsoNormal c5"><span class='c8'>'** 11/14/03 v1.0.5 TheoZ- 
+	ControlManager.ctl Last modified<br>
+	'** 11/05/06 v1.1.0 Yorgi- Applied code reformatting, sort, and numbered 
+	functions/subs, ERL error handling<br>
+	'** 11/07/06 v1.1.1 Yorgi- Convert to Paul_Caton.Subclass w/ minor err 
+	handling mods<br>
+	'** 11/23/06 v1.1.17 Yorgi- Added Runtime control capability<br>
+	'** 12/04/06 v1.1.21 Yorgi- Added IDoknForm interface<br>
+	'** 12/10/06 v1.1.25 Yorgi- Integrating DockedForms functionality<br>
+	'** 12/15/07 v1.1.31 Yorgi- Support draggable UnDocked forms as Hitchhikers<br>
+	'** 12/19/07 v1.1.37 Yorgi- Various performance changes &amp; code cleanup, 
+	every nanosec helps to fight VB-Bloat<br>
+	'** 01/02/07 v1.1.39 Yorgi- Added BatchBuild (small speed enhancement) to 
+	consolidate rebuild and painting overhead<br>
+	'** 01/08/07 v1.1.42 Yorgi- Split ControlManager functionality into 
+	VCtrlManager,VCntrlRebuildAll,VCntrlAdd,,VCntrlRemove<br>
+	'** 01/11/07 v1.1.43 Yorgi- Add TitleBar draw vertical capability, apply 
+	default actions (doublebars=dockable, singlebar=moveable)<br>
+	'** 01/19/07 v1.1.52 Yorgi- GetDropTarget valid return only if cursor is 
+	inside Usercontrol<br>
+	'** 01/25/07 v1.1.57 Yorgi- Add event notify for FormAdd &amp; FormRemove<br>
+	'** 01/28/07 v1.1.59 Yorgi- Modified the Activate logic to handle aligned 
+	DoknSplitz control<br>
+	'** 01/29/07 v1.1.60 Yorgi- Added a Slider Bar to size aligned DoknSplitz 
+	controls<br>
+	'** 02/03/07 v1.1.61 Yorgi- Modified TitleBar handling to support TBarCreate 
+	&amp; TBarRemove functions<br>
+	'** 02/04/07 v1.1.62 Yorgi- Refresh is now re-entrant, allows for &quot;rebuild 
+	later&quot; on errors (ie Usercontrol too small to draw componenets)<br>
+	'** 02/15/07 v1.1.64 Yorgi- Added error handling to Stretch and checked for 
+	valid Splitter.IdCtlFriends<br>
+	'** 02/20/07 v1.1.67 Yorgi- Overhauled all classes (except clsId) to use &quot;ControlKey&quot; 
+	as the collection Key instead of Index.<br>
+	'** 02/22/07 v1.1.68 Yorgi- Fix(iSubclass_WndProc):Don't call Activate on 
+	SIZE_MINIMIZE it's MADNESS<br>
+	'** Why? Because the ContainedCntrls collection uses a push to the BOTTOM 
+	method of indexing anytime the Visible property<br>
+	'** of an embedded control is changed. This renders the ContainedCntrls 
+	index useless as a reference in other stored variables/collections.<br>
+	'** When docking a form for example, the VCtrlManager had to always re-Index 
+	all of the referencing collections to stay in sync.<br>
+	'** 02/24/07 v1.1.71 Yorgi- Fix(MDI Slider):Inital alignment did not 
+	reposition VirtualControls.Left properly for Slider<br>
+	'** 02/26/07 v1.1.72 Yorgi- SDI/MDI Demos: Replaced RichTextBox controls 
+	with InternetControl to support 4Matz generated html docs</span><span class="c6"><br>
+	&nbsp;</span></p>
+
+    <p class="MsoNormal c7"><span class='c6'>Things To Do</span></p>
+
+  </div>
+	<p class="MsoNormal c5"><span class='c8'>'** - Moving ctlRect leaves a 
+	terrible trailing rect effect. Must find a way another way! Maybe BitBlt an 
+	image???<br>
+	'** - Always looking for additional functionality, but mostly performance 
+	gains!!!!<br>
+&nbsp;</span></p>
+</body>
+</html>

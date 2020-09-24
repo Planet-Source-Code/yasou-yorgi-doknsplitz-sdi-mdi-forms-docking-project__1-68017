@@ -1,0 +1,66 @@
+Type=Control
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+Class=clsControl; clsControl.cls
+Class=clsControls; clsControls.cls
+Module=mdlGeneral; mdlGeneral.bas
+Class=clsSplitters; clsSplitters.cls
+Class=clsSplitter; clsSplitter.cls
+Class=clsIds; clsIds.cls
+Class=clsId; clsId.cls
+Module=mdlAPI; mdlAPI.bas
+Class=DokNForm; DokNForm.cls
+Class=DokNForms; DokNForms.cls
+Module=modDefsWin32Msgs; modDefsWin32Msgs.bas
+Module=modDefsGraphics; modDefsGraphics.bas
+Class=iSubclass; iSubclass.cls
+Class=cSubclass; cSubclass.cls
+UserControl=ctlButton.ctl
+UserControl=ctlRect.ctl
+UserControl=ctlTitleBar.ctl
+UserControl=ctlControlManager.ctl
+Class=TitleBar; clsTitleBar.cls
+Class=TEnums; TEnums.cls
+Form=dlgAbout.frm
+Class=cDefsWin32Msgs; cDefsWin32Msgs.cls
+Class=IDoknForm; IDokNForm.cls
+Class=clsSlider; cSlider.cls
+ResFile32="DoknSplitz.RES"
+Startup="(None)"
+HelpFile=""
+Title="DockNSplit"
+ExeName32="DokNSplitz.ocx"
+Command32=""
+Name="DoknSplitz"
+HelpContextID="0"
+CompatibleMode="1"
+CompatibleEXE32="DokNSplitz.ocx"
+MajorVer=1
+MinorVer=1
+RevisionVer=76
+AutoIncrementVer=1
+ServerSupportFiles=0
+DllBaseAddress=&H15000000
+VersionCompanyName="Personal"
+CondComp="DebugMode = 0"
+CompilationType=0
+OptimizationType=1
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=-1
+BoundsCheck=-1
+OverflowCheck=-1
+FlPointCheck=-1
+FDIVCheck=-1
+UnroundedFP=-1
+StartMode=1
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+ThreadingModel=1
+DebugStartupOption=0
+
+[MS Transaction Server]
+AutoRefresh=1
+
+

@@ -1,0 +1,416 @@
+<html><head>
+<style>
+h5,h6,ul,li {margin-top:0px;margin-bottom:0px;}
+pre {margin-top:0px;margin-bottom:0px;}
+p {margin:0px;font-family:verdana;font-size:10;}
+p.hdg {margin-top:1em;}
+body {font-family:verdana;font-size:10;}
+.header {color:blue;font-weight: 900;}
+</style></head><body>
+<H5>File:     ActiveX Control Source\ctlControlManager.ctl            (Procedures)</H5><hr>
+<p class=hdg>1. <span class=header>Activate</span> (Changed)</p>
+<ul>
+<li>Private Sub Activate() </li>
+<p><li><pre>   ' Purpose    - Activate and resize the control to meet its container size with</pre></li></p>
+<p><li><pre>   '              respect to the control's margin property and FillContainer property</pre></li></p>
+<p><li><pre>   ' Assumption - The parent of the control has ScaleWidth and ScaleHeight property</pre></li></p>
+<p><li><pre>   ' Note       - This is the main method of the control. This method should be</pre></li></p>
+<p><li><pre>   '              called whenever its container is loaded. Also this method should</pre></li></p>
+<p><li><pre>   '              be called everytime its container's size is changed so that the</pre></li></p>
+<p><li><pre>   '              FillContainer property would work.</pre></li></p>
+</ul>
+<p class=hdg>2. <span class=header>AdjustedHeight</span> (Changed)</p>
+<ul>
+<li>Private Function AdjustedHeight(ctl As Control, octl As clsControl) As Long   </li>
+<p><li><pre>   ' Purpose    - Returns the adjusted height of control ctl</pre></li></p>
+<p><li><pre>   ' Inputs     - * ctl</pre></li></p>
+<p><li><pre>   '              * octl (the virtual control of control ctl)</pre></li></p>
+<p><li><pre>   ' Note       - This function is used to avoid flickering effect in LiveUpdate</pre></li></p>
+</ul>
+<p class=hdg>3. <span class=header>BatchBuild</span> (New)</p>
+<ul>
+<li>Public Property Let BatchBuild(bBatch As Boolean) </li>
+<p><li><pre>   ' Purpose    - Performance gain by batching multiple control adds/mods before</pre></li></p>
+<p><li><pre>   '** Build Manager processing or painting functions occur.  When false, Build Manager is</pre></li></p>
+<p><li><pre>   '** automatically called to process all pending changes.</pre></li></p>
+<p><li><pre>   '** WARNING- VCtlIdxs are re-assigned during calls to VCtrlRebuildAll so do not store locally.  Always</pre></li></p>
+<p><li><pre>   '** retrieve from the DockedForm or Controls object (ie df.VCtlIdx)</pre></li></p>
+<p><li><pre>   '** 01/20/07 Yorgi- Create BatchBuild speed enhancement to consolidate rebuild and painting overhead</pre></li></p>
+<li>Public Property Get BatchBuild() As Boolean </li>
+<p><li><pre>   ' Purpose    - Create BatchBuild speed enhancement to consolidate rebuild and painting overhead</pre></li></p>
+</ul>
+<p class=hdg>4. <span class=header>CreateSplitr</span> (New)</p>
+<ul>
+<li>Private Sub CreateSplitr(lngIdx As Long) </li>
+<p><li><pre>   ' Purpose    - Loads a picSplitter object</pre></li></p>
+</ul>
+<p class=hdg>5. <span class=header>ctbTitleBar_CloseClick</span> (Changed)</p>
+<ul>
+<li>Private Sub ctbTitleBar_CloseClick(Index As Integer) </li>
+<p><li><pre>   ' Purpose    - Closes the control at run-time, re-arranges the other controls</pre></li></p>
+<p><li><pre>   '              and raises ControlBeforeClose and ControlAfterClose event</pre></li></p>
+<p><li><pre>   ' Effect     - See the codes</pre></li></p>
+<p><li><pre>   ' Input      - Index (the id of the control which will be closed)</pre></li></p>
+</ul>
+<p class=hdg>6. <span class=header>ctbTitleBar_DblClick</span> (Changed)</p>
+<ul>
+<li>Private Sub ctbTitleBar_DblClick(Index As Integer) </li>
+<p><li><pre>   ' Purpose    - Raises custom event TitleBarDblClick</pre></li></p>
+<p><li><pre>   ' Input      - Index</pre></li></p>
+<p><li><pre>   '** 01/11/07 Yorgi: If allowed to float, then use this event to also undock control</pre></li></p>
+</ul>
+<p class=hdg>7. <span class=header>ctbTitleBar_Move</span> (Changed)</p>
+<ul>
+<li>Private Sub ctbTitleBar_Move(Index As Integer, ByVal Shift As Integer, bHitchHiker As Boolean) </li>
+<p><li><pre>   ' Purpose    - Moves the control at run-time and raises ControlMove event</pre></li></p>
+<p><li><pre>   ' Effects    - * If the cursor is on a splitter which doesn't belong to the</pre></li></p>
+<p><li><pre>   '                control or the cursor is on the edge of the ControlManager</pre></li></p>
+<p><li><pre>   '                control, then the drop guider rectangle has been shown</pre></li></p>
+<p><li><pre>   '              * Otherwise, the guider rectangle position has been adjusted</pre></li></p>
+<p><li><pre>   '                based on the cursor position</pre></li></p>
+<p><li><pre>   ' Inputs     - * Index (the id of the control which will be moved)</pre></li></p>
+<p><li><pre>   '              * Shift (an integer that corresponds to the state of the SHIFT,</pre></li></p>
+<p><li><pre>   '                       CTRL, and ALT keys)</pre></li></p>
+<p><li><pre>   '** 01/15/07 Yorgi - added bHitchHiker flag so we can use the same logic for all moving objects</pre></li></p>
+<p><li><pre>   '                    regardless of runtime(docked/undocked) or design time controls</pre></li></p>
+</ul>
+<p class=hdg>8. <span class=header>ctbTitleBar_MoveBegin</span> (Changed)</p>
+<ul>
+<li>Private Sub ctbTitleBar_MoveBegin(Index As Integer, ByVal Shift As Integer, bHitchHiker As Boolean) </li>
+<p><li><pre>   ' Purpose    - Initializes all things needed to move the control at run-time</pre></li></p>
+<p><li><pre>   ' Effect     - The guider rectangle has been shown</pre></li></p>
+<p><li><pre>   ' Inputs     - * Index (the id of the control which will be moved)</pre></li></p>
+<p><li><pre>   '              * Shift (an integer that corresponds to the state of the SHIFT,</pre></li></p>
+<p><li><pre>   '                       CTRL, and ALT keys)</pre></li></p>
+<p><li><pre>   ' This subclassing below is used to handle the possibility of the user</pre></li></p>
+<p><li><pre>   '   swithing to another application while dragging the splitter</pre></li></p>
+</ul>
+<p class=hdg>9. <span class=header>ctbTitleBar_MoveEnd</span> (Changed)</p>
+<ul>
+<li>Private Sub ctbTitleBar_MoveEnd(Index As Integer, ByVal Shift As Integer, ByRef dfHitchhiker As DokNForm, blnSuccess As Boolean) </li>
+<p><li><pre>   ' Purpose    - Ends the run-time control move action</pre></li></p>
+<p><li><pre>   ' Effect     - * The guider rectangle has been hidden</pre></li></p>
+<p><li><pre>   '              * If the drop target is valid, the control has been moved and</pre></li></p>
+<p><li><pre>   '                the other controls position and size have been re-arranged</pre></li></p>
+<p><li><pre>   ' Inputs     - * Index (the id of the control which will be moved)</pre></li></p>
+<p><li><pre>   '              * Shift (an integer that corresponds to the state of the SHIFT, CTRL, and ALT keys)</pre></li></p>
+<p><li><pre>   ' Variables for GetDropTarget parameters</pre></li></p>
+<p><li><pre>   '** 01/21/07 Yorgi- Support draggable UnDocked form as Hitchhiker</pre></li></p>
+</ul>
+<p class=hdg>10. <span class=header>DetachAll</span> (New)</p>
+<ul>
+<li>Public Sub DetachAll() </li>
+<p><li><pre>   ' Purpose   - Stop all dockedform subclassing.  Used when Main App is unloading</pre></li></p>
+</ul>
+<p class=hdg>11. <span class=header>Dock</span> (New)</p>
+<ul>
+<li>Public Function Dock(ByRef df As DokNForm, Optional bHide As Boolean) As Boolean </li>
+<p><li><pre>   ' Purpose   - Dock a form within host boundaries</pre></li></p>
+<p><li><pre>   '** 12/04/06 Yorgi- The Splitter control now handles drawing requirements, here we just set window properties</pre></li></p>
+</ul>
+<p class=hdg>12. <span class=header>DockedForm</span> (New)</p>
+<ul>
+<li>Public Function DockedForm(ByRef ofrm As Object) As DokNForm </li>
+<p><li><pre>   ' Purpose   - Retrieves the docked form object</pre></li></p>
+</ul>
+<p class=hdg>13. <span class=header>FillContainer</span> (Changed)</p>
+<ul>
+<li>Public Property Let FillContainer(blnFillContainer As Boolean)  </li>
+<p><li><pre>   ' Purpose    - Sets a value that determines whether the ActiveX Control (along</pre></li></p>
+<p><li><pre>   '              with all controls inside it) will automatically adjust its size</pre></li></p>
+<p><li><pre>   '              to fill-up its container with respect to the margin properties</pre></li></p>
+<p><li><pre>   ' Input      - blnFillContainer (the new FillContainer property value)</pre></li></p>
+</ul>
+<p class=hdg>14. <span class=header>FormAdd</span> (New)</p>
+<ul>
+<li>Public Function FormAdd(ByRef ofrm As Object, Optional df As DokNForm, Optional oAttachToCtrl As Object, Optional Align As eDAlignProperty = DAlignLeft, Optional sKey As String, Optional Style As eDockStyles, Optional iPos As TBarOrientation, Optional bHasCloseButton As Boolean = True) As Boolean </li>
+<p><li><pre>   ' Purpose   - Creates a docked form object and it's Host Container.  A new DoknForm objects is created</pre></li></p>
+<p><li><pre>   '             only if it does not exist, otherwise we ShowControl the existing object (positions not changed)</pre></li></p>
+<p><li><pre>   '             If you want to force a particular position, first make sure object is not .Closed,</pre></li></p>
+<p><li><pre>   '             then use the MoveControl function for specific placement.</pre></li></p>
+</ul>
+<p class=hdg>15. <span class=header>FormRemove</span> (New)</p>
+<ul>
+<li>Public Function FormRemove(ByRef ofrm As Object, Optional bUnload As Boolean = True) As Boolean </li>
+<p><li><pre>   ' Purpose   - Unloads the docked form object and it's Host Container</pre></li></p>
+</ul>
+<p class=hdg>16. <span class=header>GetDropRect</span> (Changed)</p>
+<ul>
+<li>Private Function GetDropRect(sIdCtlSource As String, sIdCtlDestination As String, IdSplDestination As Long, udeTargetType As genmMoveDestination) As RECT   </li>
+<p><li><pre>   ' Purpose    - Retrieves the drop guider rectangle</pre></li></p>
+<p><li><pre>   ' Inputs     - * sIdCtlSource (the control's id that will be moved)</pre></li></p>
+<p><li><pre>   '              * sIdCtlDestination (the control's id where the control sIdCtlSource will be moved to)</pre></li></p>
+<p><li><pre>   '              * IdSplDestination (the splitter's id where the control sIdCtlSource will be moved to)</pre></li></p>
+<p><li><pre>   '              * udeTargetType (the target type (an edge or a splitter) of the drop rect)</pre></li></p>
+</ul>
+<p class=hdg>17. <span class=header>GetDropTarget</span> (Changed)</p>
+<ul>
+<li>Private Sub GetDropTarget(ByRef blnTargetValid As Boolean, ByRef udeTargetType As genmMoveDestination, ByRef sIdCtl As String, ByRef lngIdSpl As Long, ByRef uposCursor As POINTAPI) </li>
+<p><li><pre>   ' Purpose    - Retrieves the drop guider target type based on the current mouse position</pre></li></p>
+<p><li><pre>   ' Returns    - * blnTargetValid (indicating whether the current mouse position is on a valid target)</pre></li></p>
+<p><li><pre>   '              * udtTargetType (the target type- an edge or a control's edge or a splitter of the drop rect)</pre></li></p>
+<p><li><pre>   '              * sIdCtl (the target control's id)</pre></li></p>
+<p><li><pre>   '              * lngIdSpl (the target splitter's id)</pre></li></p>
+<p><li><pre>   '** 01/25/07 Yorgi- Return valid target only if cursor is inside the Usercontrol</pre></li></p>
+<p><li><pre>   '** 01/26/07 Yorgi- Performance & cleanup</pre></li></p>
+</ul>
+<p class=hdg>18. <span class=header>GetParentHwnd</span> (New)</p>
+<ul>
+<li>Private Function GetParentHwnd() As Long </li>
+<p><li><pre>   ' Purpose    - Returns Parent or MDIChild hWnd</pre></li></p>
+</ul>
+<p class=hdg>19. <span class=header>GetUCInnerDimensions</span> (New)</p>
+<ul>
+<li>Private Function GetUCInnerDimensions(ByRef Innerds As typUCInnerDimensions) </li>
+<p><li><pre>   ' Purpose    - Returns the Usercontrol's inside dimensions with respect to the space used by the Slider</pre></li></p>
+</ul>
+<p class=hdg>20. <span class=header>HostCtrlAdd</span> (New)</p>
+<ul>
+<li>Private Function HostCtrlAdd(ByRef oVirtCtl As clsControl, ByRef oRTCtrl As PictureBox, ByRef oAttachToCtrl As Control, lAttachWhere As eDAlignProperty) As Long </li>
+<p><li><pre>   ' Purpose    - Add runtime Host control to the controls collection and rebuild all splitters</pre></li></p>
+<p><li><pre>   ' Effect     - * If successed, as specified</pre></li></p>
+<p><li><pre>   '              * Otherwise, the custom error message has been raised</pre></li></p>
+<p><li><pre>   ' 11/09/06 Yorgi - Create function</pre></li></p>
+<p><li><pre>   ' 11/24/06 Yorgi : Allow add by position</pre></li></p>
+<p><li><pre>   'Change your RunTimeCtrl's parent to the splitter. This causes an element to be added to the</pre></li></p>
+<p><li><pre>   ' ContainedCntrls collection.</pre></li></p>
+</ul>
+<p class=hdg>21. <span class=header>HostCtrlRemove</span> (New)</p>
+<ul>
+<li>Private Sub HostCtrlRemove(ByRef oRTCtrl As Control) </li>
+<p><li><pre>   ' Purpose    - Remove runtime control/form from the controls collection</pre></li></p>
+<p><li><pre>   ' Effect     - * If successed, as specified</pre></li></p>
+<p><li><pre>   '              * Otherwise, the custom error message has been raised</pre></li></p>
+<p><li><pre>   ' 12/05/06 Yorgi - Create function</pre></li></p>
+<p><li><pre>   'Change your RunTimeCtrl's parent to the parent form.  This should also remove object</pre></li></p>
+<p><li><pre>   'from the ContainedCntrls collection</pre></li></p>
+</ul>
+<p class=hdg>22. <span class=header>IDoknForm_WinEvent</span> (New)</p>
+<ul>
+<li>Private Sub IDoknForm_WinEvent(hWnd As Long, uMsg As Long, df As DokNForm, wParam As Long, lParam As Long) </li>
+<p><li><pre>   ' Purpose    - An interface postback method for special handling of form events</pre></li></p>
+</ul>
+<p class=hdg>23. <span class=header>InitSlider</span> (New)</p>
+<ul>
+<li>Private Sub InitSlider(eAlign As AlignConstants) </li>
+<p><li><pre>   ' Purpose    - Changes in Align property determine Slider's visibility</pre></li></p>
+</ul>
+<p class=hdg>24. <span class=header>IsSolid</span> (Changed)</p>
+<ul>
+<li>Private Function IsSolid(Optional blnIncludeSplitter As Boolean = True) As Boolean </li>
+<p><li><pre>   ' Purpose    - Returns a value indicating whether the virtual controls and splitters are solid</pre></li></p>
+<p><li><pre>   ' Input      - blnIncludeSplitter (indicating whether the splitters are included to determine the solid state)</pre></li></p>
+<p><li><pre>   '-- YorgiPerf: VB compound if statements are not as efficient as C++ so break them apart</pre></li></p>
+</ul>
+<p class=hdg>25. <span class=header>iSubclass_WndProc</span> (New)</p>
+<ul>
+<li>Private Sub iSubclass_WndProc(ByVal bBefore As Boolean, bHandled As Boolean, lReturn As Long, ByVal lng_hWnd As Long, ByVal uMsg As eMsg, ByVal wParam As Long, ByVal lParam As Long) </li>
+</ul>
+<p class=hdg>26. <span class=header>MoveSplitter</span> (Changed)</p>
+<ul>
+<li>Public Function MoveSplitter(IdSplitter As Long, MoveTo As Long) As Boolean   </li>
+<p><li><pre>   ' Purpose    - Moves a splitter to the specified x- or y- (depending on the</pre></li></p>
+<p><li><pre>   '              splitter's Orientation property) coordinate</pre></li></p>
+<p><li><pre>   ' Effects    - * If successful, the control has been moved and all other</pre></li></p>
+<p><li><pre>   '                effected splitters and controls' minimum and maximum x- and y-</pre></li></p>
+<p><li><pre>   '                coordinates have been adjusted</pre></li></p>
+<p><li><pre>   '              * If splitter IdSplitter doesn't exist, a run-time error has been</pre></li></p>
+<p><li><pre>   '                generated</pre></li></p>
+<p><li><pre>   ' Inputs     - * IdSplitter (a value that uniquely identifies the splitter the</pre></li></p>
+<p><li><pre>   '                            developer want to move)</pre></li></p>
+<p><li><pre>   '              * MoveTo (an integer value that specifies the x- or y- coordinate</pre></li></p>
+<p><li><pre>   '                        (depending on the splitter's Orientation property)</pre></li></p>
+<p><li><pre>   '                        where the splitter will be moved)</pre></li></p>
+</ul>
+<p class=hdg>27. <span class=header>mVirtualControls_TitleBarVisibleChange</span> (Changed)</p>
+<ul>
+<li>Private Sub mVirtualControls_TitleBarVisibleChange(sIdControl As String) </li>
+<p><li><pre>   ' Purpose    - Refreshes the control's title bar visibility</pre></li></p>
+<p><li><pre>   ' Input      - IdControl (a value that uniquely identifies a control)</pre></li></p>
+<p><li><pre>   ' Effects    - The maximum and minimum value of the corresponding splitters have been adjusted</pre></li></p>
+<p><li><pre>   '** 01/15/07 Yorgi- Performance & cleanup</pre></li></p>
+</ul>
+<p class=hdg>28. <span class=header>picSlider_MouseDown</span> (New)</p>
+<ul>
+<li>Private Sub picSlider_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single) </li>
+<p><li><pre>   ' Purpose    - Handles picSlider MouseDown event if control alignment is active</pre></li></p>
+</ul>
+<p class=hdg>29. <span class=header>picSlider_MouseMove</span> (New)</p>
+<ul>
+<li>Private Sub picSlider_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single) </li>
+<p><li><pre>   ' Purpose    - Handles picSlider MouseMove event if control alignment is active</pre></li></p>
+</ul>
+<p class=hdg>30. <span class=header>picSlider_MouseUp</span> (New)</p>
+<ul>
+<li>Private Sub picSlider_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single) </li>
+<p><li><pre>   ' Purpose    - Handles picSlider MouseUp event if control alignment is active</pre></li></p>
+</ul>
+<p class=hdg>31. <span class=header>picSplitter_MouseDown</span> (Changed)</p>
+<ul>
+<li>Private Sub picSplitter_MouseDown(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single) </li>
+<p><li><pre>   ' Purpose    - Initializes all things needed to move the splitter at run-time</pre></li></p>
+<p><li><pre>   '              and raises custom event SplitterMouseDown and SplitterMoveBegin</pre></li></p>
+<p><li><pre>   ' Assumption - Picture Box control picSplitter(Index) which represents the</pre></li></p>
+<p><li><pre>   '              splitter exits</pre></li></p>
+<p><li><pre>   ' Effects    - * mblnDrag = true</pre></li></p>
+<p><li><pre>   '              * mlngDragStart = x or y (see the codes)</pre></li></p>
+<p><li><pre>   '              * Control picSplitter(Index) is in front of the other controls</pre></li></p>
+<p><li><pre>   '              * If the splitter's LiveUpdate property is false, then the</pre></li></p>
+<p><li><pre>   '                picSpliter(Index) BackColor property has been set to the</pre></li></p>
+<p><li><pre>   '                splitter's ActiveColor property</pre></li></p>
+<p><li><pre>   '              * If the splitter's ClipCursor property is true, then the mouse</pre></li></p>
+<p><li><pre>   '                pointer has been confined based on the splitter's MinXc, MinYc,</pre></li></p>
+<p><li><pre>   '                MaxXc and MaxYc property value</pre></li></p>
+<p><li><pre>   '              * Custom event SplitterMouseDown has been raised</pre></li></p>
+<p><li><pre>   '              * If the user presses the left-button, then the SplitterMoveBegin</pre></li></p>
+<p><li><pre>   '                event has been raised</pre></li></p>
+<p><li><pre>   ' Inputs     - Index, Button, Shift, X, Y</pre></li></p>
+<p><li><pre>   ' Note       - Notes that this procedure may confine the mouse pointer to</pre></li></p>
+<p><li><pre>   '              certain area in the screen. If you call this procedure, don't</pre></li></p>
+<p><li><pre>   '              forget to free the mouse pointer afterwards using</pre></li></p>
+<p><li><pre>   '              mdlAPI.ClipCursorClear function.</pre></li></p>
+<p><li><pre>   ' confine the mouse pointer</pre></li></p>
+<p><li><pre>   '         pointer would be confined</pre></li></p>
+</ul>
+<p class=hdg>32. <span class=header>picSplitter_MouseUp</span> (Changed)</p>
+<ul>
+<li>Private Sub picSplitter_MouseUp(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single) </li>
+<p><li><pre>   ' Purpose    - Ends the run-time splitter move action and raises custom event</pre></li></p>
+<p><li><pre>   '              SplitterMouseUp or SplitterMoveEnd</pre></li></p>
+<p><li><pre>   ' Assumption - Picture Box control picSplitter(lIdx) which represents the</pre></li></p>
+<p><li><pre>   '              splitter exits</pre></li></p>
+<p><li><pre>   ' Effects    - * mblnDrag = false</pre></li></p>
+<p><li><pre>   '              * Control picSplitter(lIdx) is in front of the other controls</pre></li></p>
+<p><li><pre>   '              * If the splitter's LiveUpdate property is false, then the</pre></li></p>
+<p><li><pre>   '                picSpliter(lIdx) BackColor property has been set to the</pre></li></p>
+<p><li><pre>   '                splitter's BackColor property</pre></li></p>
+<p><li><pre>   '              * The splitters minimum and maximum x- and y- coordinates have</pre></li></p>
+<p><li><pre>   '                been adjusted</pre></li></p>
+<p><li><pre>   '              * If the splitter's ClipCursor property is true, then the mouse</pre></li></p>
+<p><li><pre>   '                pointer has been freed from confinement</pre></li></p>
+<p><li><pre>   '              * If the splitter was moved then custom event Moved has been</pre></li></p>
+<p><li><pre>   '                raised, otherwise, custom event MouseUp has been raised</pre></li></p>
+</ul>
+<p class=hdg>33. <span class=header>Refresh</span> (Changed)</p>
+<ul>
+<li>Private Function Refresh() As Boolean </li>
+<p><li><pre>   ' Purpose    - Applies the virtual controls and splitters to their real controls and splitter</pre></li></p>
+<p><li><pre>   '** 01/11/07 Yorgi- Add TBar Vertical functionality</pre></li></p>
+<p><li><pre>   '** 02/04/07 Yorgi- Refresh is now re-entrant, allows rebuild later on errors (ie Usercontrol too small to draw componenets)</pre></li></p>
+</ul>
+<p class=hdg>34. <span class=header>SecureRaiseError</span> (Changed)</p>
+<ul>
+<li>Private Sub SecureRaiseError(ByVal udeErrNumber As genmErrNumber, Optional strSource As String = vbNullString) </li>
+<p><li><pre>   ' Purpose    - Securely raises custom error udeErrNumber by firstly ends the</pre></li></p>
+<p><li><pre>   '              subclassing</pre></li></p>
+<p><li><pre>   ' Assumptions- * Error message udeErrNumber exists in the resource file</pre></li></p>
+<p><li><pre>   '              * Global variable gstrControlName has been initialized</pre></li></p>
+<p><li><pre>   ' Inputs     - * udeErrNumber</pre></li></p>
+<p><li><pre>   '              * strSource (the location in form ClassNaRoutinesName where</pre></li></p>
+<p><li><pre>   '                the error occur</pre></li></p>
+<p><li><pre>   '** 01/20/07 Yorgi- Must continue to recieve WM_SIZE messages, even after errors occur</pre></li></p>
+<p><li><pre>   ''''10   oSub.DelMsg mlngHwndParent, WM_SIZE, MSG_AFTER</pre></li></p>
+</ul>
+<p class=hdg>35. <span class=header>SetAlignment</span> (New)</p>
+<ul>
+<li>Public Sub SetAlignment(ByVal eAlign As AlignConstants) </li>
+<p><li><pre>   ' Purpose    - Changes in Align property determine Slider's visibility</pre></li></p>
+</ul>
+<p class=hdg>36. <span class=header>SetMargins</span> (New)</p>
+<ul>
+<li>Public Sub SetMargins(ByVal lngMarginTop As Long, ByVal lngMarginLeft As Long, ByVal lngMarginBottom As Long, ByVal lngMarginRight As Long) </li>
+<p><li><pre>   ' Purpose    - Sets the margins of the ActiveX Control from its container</pre></li></p>
+<p><li><pre>   '              Minimize impact of rebuilts by calling Activate only once</pre></li></p>
+</ul>
+<p class=hdg>37. <span class=header>ShowControl</span> (New)</p>
+<ul>
+<li>Public Sub ShowControl(sIdControl As String, ByVal bOpen As Boolean, Optional ByRef Success As Boolean, Optional MaintainSize As Boolean = False) </li>
+<p><li><pre>   ' Purpose    - Closes (hides) a control</pre></li></p>
+<p><li><pre>   ' Effects    - * If successful, the control has been closed</pre></li></p>
+<p><li><pre>   '              * If control IdControl doesn't exist, a run-time error has been generated</pre></li></p>
+<p><li><pre>   '              * otherwise, no effect</pre></li></p>
+<p><li><pre>   ' Input      - IdControl (a value that uniquely identifies the control the developer want to close)</pre></li></p>
+</ul>
+<p class=hdg>38. <span class=header>Size</span> (Changed)</p>
+<ul>
+<li>Public Property Let Size(ByVal lngSize As Long) </li>
+<p><li><pre>   ' Purpose    - Sets the size of all splitters</pre></li></p>
+<p><li><pre>   ' Effects    - * If Size is smaller than the splitters' minimum size then the</pre></li></p>
+<p><li><pre>   '                splitters' size has been set to their minimum size</pre></li></p>
+<p><li><pre>   '              * If there is a control with size less than its minimum size</pre></li></p>
+<p><li><pre>   '                then the error message has been raised</pre></li></p>
+<p><li><pre>   '              * Otherwise, as specified</pre></li></p>
+<p><li><pre>   ' Input      - lngSize (the new Size property value)</pre></li></p>
+<p><li><pre>   '** 01/15/07 Yorgi- Performance & cleanup</pre></li></p>
+</ul>
+<p class=hdg>39. <span class=header>StretchFillContainer</span> (Changed)</p>
+<ul>
+<li>Private Sub StretchFillContainer() </li>
+<p><li><pre>   ' Purpose    - Stretches the controls and splitters to fill-up their container</pre></li></p>
+</ul>
+<p class=hdg>40. <span class=header>TBarCreate</span> (New)</p>
+<ul>
+<li>Private Sub TBarCreate(ByRef lngIdx As Long, ByRef sOwner As String) </li>
+<p><li><pre>   ' Purpose    - Loads a TBar object</pre></li></p>
+</ul>
+<p class=hdg>41. <span class=header>TBarRemove</span> (New)</p>
+<ul>
+<li>Private Sub TBarRemove(lngIdx As Long) </li>
+<p><li><pre>   ' Purpose    - Removes a TBar object</pre></li></p>
+</ul>
+<p class=hdg>42. <span class=header>UnDock</span> (Changed)</p>
+<ul>
+<li>Public Function UnDock(df As DokNForm, Optional bRemove As Boolean) As Boolean </li>
+<p><li><pre>   ' Purpose   - Undock and show the form</pre></li></p>
+</ul>
+<p class=hdg>43. <span class=header>UnloadFrmOnClose</span> (New)</p>
+<ul>
+<li>Public Property Let UnloadFrmOnClose(bln As Boolean) </li>
+<p><li><pre>   ' Purpose    - Flags form for unloading if HostControl is closed</pre></li></p>
+<li>Public Property Get UnloadFrmOnClose() As Boolean </li>
+<p><li><pre>   ' Purpose    - Flags form for unloading if HostControl is closed</pre></li></p>
+</ul>
+<p class=hdg>44. <span class=header>UserControl_Initialize</span> (Changed)</p>
+<ul>
+<li>Private Sub UserControl_Initialize() </li>
+</ul>
+<p class=hdg>45. <span class=header>UserControl_ReadProperties</span> (Changed)</p>
+<ul>
+<li>Private Sub UserControl_ReadProperties(PropBag As PropertyBag) </li>
+</ul>
+<p class=hdg>46. <span class=header>UserControl_Terminate</span> (Changed)</p>
+<ul>
+<li>Private Sub UserControl_Terminate() </li>
+</ul>
+<p class=hdg>47. <span class=header>VCtrlAdd</span> (New)</p>
+<ul>
+<li>Private Function VCtrlAdd(octl As Control, Optional oVirtCtl As clsControl, Optional sCtlName As String) As Long           </li>
+<p><li><pre>   ' Purpose    - Creates a new TBar & mVirtualControls object to add to the collection</pre></li></p>
+<p><li><pre>   ' Returns    - The new VirtCtl IdName & TBarIdx</pre></li></p>
+</ul>
+<p class=hdg>48. <span class=header>VCtrlIdxToDoknForm</span> (New)</p>
+<ul>
+<li>Private Function VCtrlIdxToDoknForm(ByRef sVKey As String, ByRef df As DokNForm) As Boolean   </li>
+<p><li><pre>   ' Purpose    - Get the docked form object</pre></li></p>
+</ul>
+<p class=hdg>49. <span class=header>VCtrlManager</span> (New)</p>
+<ul>
+<li>Public Function VCtrlManager(Optional blnRebuildAll As Boolean = False) As Boolean  </li>
+<p><li><pre>   ' Purpose    - Builds virtual controls and splitters, allowing Refresh function to</pre></li></p>
+<p><li><pre>   '              apply virtual dimensions to the real controls and splitters</pre></li></p>
+<p><li><pre>   ' Effect     - * If successed, as specified</pre></li></p>
+<p><li><pre>   '              * Otherwise, the custom error message has been raised</pre></li></p>
+<p><li><pre>   '** 01/26/07 Yorgi- Performance & cleanup</pre></li></p>
+</ul>
+<p class=hdg>50. <span class=header>VCtrlRebuildAll</span> (New)</p>
+<ul>
+<li>Private Sub VCtrlRebuildAll() </li>
+<p><li><pre>   ' Purpose    - Builds a new mVirtualControls collection for each ContainedControl</pre></li></p>
+<p><li><pre>   ' Effect     - * If successed, as specified</pre></li></p>
+<p><li><pre>   '              * Otherwise, the custom error message has been raised</pre></li></p>
+</ul>
+<p class=hdg>51. <span class=header>VCtrlRemove</span> (New)</p>
+<ul>
+<li>Private Function VCtrlRemove(sVCtlKey As String) </li>
+<p><li><pre>   ' Purpose    - Removes TBar & mVirtualControls object</pre></li></p>
+</ul><br><center><hr><H6>Generated by Yorgi's 4Matz [Feb 28,2007 23:58:51] doc=vb,Procs,netchg,html</center></body><html>
