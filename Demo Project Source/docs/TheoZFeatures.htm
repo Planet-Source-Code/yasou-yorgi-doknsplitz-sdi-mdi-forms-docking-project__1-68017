@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content="HTML Tidy for Windows (vers 13 April 2006), see www.w3.org">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta name="Generator" content="Microsoft Word 10 (filtered)">
+
+  <title>VB Control Manager</title>
+  <style type="text/css">
+<!--
+  /* Font Definitions */
+  @font-face
+        {font-family:Verdana;
+        panose-1:2 11 6 4 3 5 4 4 2 4;}
+  /* Style Definitions */
+  p.MsoNormal, li.MsoNormal, div.MsoNormal
+        {margin:0in;
+        margin-bottom:.0001pt;
+        font-size:12.0pt;
+        font-family:"Times New Roman";}
+  /* Page Definitions */
+  @page Section1
+        {size:8.5in 11.0in;
+        margin:1.0in 1.25in 1.0in 1.25in;}
+  div.Section1
+        {page:Section1;}
+  -->
+  </style>
+  <style type="text/css">
+body.c21 {text-justify-trim:punctuation}
+  span.c20 {font-size:8.0pt;color:black}
+  p.c19 {margin-left:130.5pt;text-indent:-130.5pt;text-autospace: none}
+  p.c18 {margin-left:166.5pt;text-indent:-148.5pt;text-autospace: none}
+  p.c17 {margin-left:117.0pt;text-indent:-117.0pt;text-autospace: none}
+  p.c16 {margin-left:63.0pt;text-indent:-63.0pt;text-autospace: none}
+  span.c15 {font-size:8.0pt;font-family: Verdana;color:black}
+  p.c14 {margin-left:.25in;text-indent:-.25in;text-autospace: none}
+  span.c13 {font-size:8.0pt;font-family:Verdana;color:navy}
+  span.c12 {font-size: 8.0pt;font-family:Verdana;color:black}
+  span.c11 {font-size:8.0pt;font-family:Verdana; color:black}
+  span.c10 {font-size:8.0pt;font-family:Verdana;color:black}
+  p.c9 {font-weight: bold; text-autospace: none}
+  span.c8 {font-size:8.0pt; font-family:Verdana;color:navy}
+  span.c7 {font-size:8.0pt; font-family:Verdana;color:black}
+  p.c6 {text-autospace:none}
+  span.c5 {font-size:9.0pt; font-family:Verdana;color:gray}
+  p.c4 {font-style: italic; font-weight: bold; text-align: center; text-autospace: none}
+  span.c3 {font-size:10.0pt;font-family:Verdana;color:#FF6600}
+  p.c2 {font-weight: bold; text-align: center; text-autospace: none}
+  span.c1 {font-size:11.0pt;font-family:Verdana;color:#993300}
+  </style>
+</head>
+
+<body lang="EN-US" class='c21'>
+  <div class="Section1">
+    <p class="MsoNormal c2"><span class='c1'>VB Control Manager</span></p>
+
+    <p class="MsoNormal c4"><span class='c3'>Features</span></p>
+
+    <p class="MsoNormal c6"><span class='c5'>&nbsp;</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>Introduction</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>VB Control Manager</span> <span lang="PT-BR" class='c10'>is an ActiveX control to allow the user</span> <span class='c11'>to dock controls and</span> <span lang="PT-BR" class='c12'>resize</span><span class='c12'>, move and show/hide</span> <span class='c10'>them</span> <span lang="PT-BR" class='c10'>at run-time.</span></p>
+
+    <p class="MsoNormal c6"><span lang="PT-BR" class='c10'>This form demonstrates VB</span> <span class='c10'>Control Manager</span><span lang="PT-BR" class='c11'>'s properties, methods</span><span class='c7'>,</span> <span lang="PT-BR" class='c12'>events</span> <span class='c12'>and its two collection properties.</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>Properties</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1.&nbsp;&nbsp; <b>ActiveColor</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the background color used to display</span> <span class='c7'>a splitter</span> <span lang="PT-BR" class='c10'>when the user moves it in none live update mode.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>2.&nbsp;&nbsp; <b>BackColor</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the background color used to display</span> <span class='c7'>all</span> <span lang="PT-BR" class='c12'>splitters.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>3.&nbsp;&nbsp; <b>ClipCursor</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether the mouse pointer is confined to</span> <span class='c10'>the virtual splitter</span> <span lang="PT-BR" class='c10'>minimum and maximum x- and y-coordinate when the user moves</span> <span class='c12'>a</span> <span lang="PT-BR" class='c10'>splitter.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>4.&nbsp;&nbsp; <b>Enable</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether</span> <span class='c15'>all</span> <span lang="PT-BR" class='c7'>splitters</span> <span class='c7'>are</span> <span lang="PT-BR" class='c12'>movable.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>5.&nbsp;&nbsp; <b>Fill Container</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether the</span> <span class='c7'>ActiveX C</span><span lang="PT-BR" class='c10'>ontrol</span> <span class='c10'>(along with all controls inside it)</span> <span lang="PT-BR" class='c15'>will automatically adjust its size to fill-up its container with respect to the margin properties.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>6.&nbsp;&nbsp; <b>LiveUpdate</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether the controls should be resized as</span> <span class='c10'>a</span> <span lang="PT-BR" class='c10'>splitter is moved.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>7.&nbsp;&nbsp; <b>MarginBottom</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the bottom margin of the</span> <span class='c11'>ActiveX C</span><span lang="PT-BR" class='c7'>ontrol from its container.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>8.&nbsp;&nbsp; <b>MarginLeft</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the left margin of the</span> <span class='c11'>ActiveX C</span><span lang="PT-BR" class='c7'>ontrol from its container.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>9.&nbsp;&nbsp; <b>MarginRight</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the right margin of the</span> <span class='c11'>ActiveX C</span><span lang="PT-BR" class='c7'>ontrol from its container.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>10.&nbsp; <b>MarginTop</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the top margin of the</span> <span class='c11'>ActiveX C</span><span lang="PT-BR" class='c7'>ontrol from its container.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>11.&nbsp; <b>Size</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the size of</span> <span class='c10'>all</span> <span lang="PT-BR" class='c10'>splitters.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1</span><span class='c10'>2</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBar_CloseVisible</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Returns/s</span><span lang="PT-BR" class='c10'>ets a value that determines whether a close button in</span> <span class='c7'>all</span> <span class='c7'>control</span> <span lang="PT-BR" class='c10'>title</span> <span lang="PT-BR" class='c10'>bar</span><span class='c10'>s</span> <span lang="PT-BR" class='c10'>is visible</span><span class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1</span><span class='c10'>3</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBar_Height</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Returns/sets the height of all control title bars.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1</span><span class='c10'>4</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBar_Visible</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Returns/sets a value that determines whether all control title bars are visible.</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>Methods</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1.&nbsp;&nbsp;</span> <b><span class='c10'>CloseControl</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Closes (hide</span><span class='c10'>s</span><span lang="PT-BR" class='c10'>) a control</span><span class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; <i>Object</i>.</span><b><span class='c10'>CloseControl</span></b> <i><span class='c10'>IdControl [, Success]</span></i></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object</i></span> <span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;</span> <span lang="PT-BR" class='c10'>-&nbsp;</span> <span class='c10'>Required.</span> <span lang="PT-BR" class='c10'>An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>IdControl</i>&nbsp; -&nbsp; Required. A value that uniquely identifies the control the developer want to close.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Success</i>&nbsp;&nbsp;&nbsp; -&nbsp; Optional. A returned value that determines whether the Close method is successful.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>2</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>MoveControl</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Moves</span> <span lang="PT-BR" class='c10'>a control</span> <span class='c10'>to certain area.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; <i>Object</i>.</span><b><span class='c10'>MoveControl</span></b> <i><span class='c10'>IdControlSource, MoveTo [, IdControlDestination, IdSplitterDestination, Success]</span></i></p>
+
+    <p class="MsoNormal c18"><span lang="PT-BR" class='c10'>Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object</i></span> <span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span lang="PT-BR" class='c10'>-&nbsp;</span> <span class='c10'>Required.</span> <span lang="PT-BR" class='c10'>An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c18"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>IdControlSource</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; Required. A value that uniquely identifies the source control the developer want to move.</span></p>
+
+    <p class="MsoNormal c18"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>MoveTo</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; Required. A value indicating the area type where the source control will be moved to.</span></p>
+
+    <p class="MsoNormal c18"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>IdControlDestination&nbsp;&nbsp;</i> -&nbsp; Required only if the area type indicated by <i>MoveTo</i> is a control. A value that uniquely identifies the destination control the developer want to move the source control to.</span></p>
+
+    <p class="MsoNormal c18"><i><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IdSplitterDestination</span></i><span class='c10'>&nbsp;&nbsp; -&nbsp; Required only if the are type indicated by <i>MoveTo</i> is a splitter. A value that uniquely identifies the splitter the developer want to move the source control to.</span></p>
+
+    <p class="MsoNormal c18"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Success</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; Optional. A returned value that determines whether the MoveControl method is successful.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>3</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp; <b>MoveSplitter</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Move</span><span class='c10'>s</span> <span lang="PT-BR" class='c10'>a splitter to the specified x- or y- (depending on</span> <span class='c7'>the splitter's</span> <span lang="PT-BR" class='c10'>Orientation property) coordinate.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; <i>Object</i>.<b>MoveSplitter</b><i>IdSplitter</i>, <i>MoveTo</i></span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp;</span> <span class='c10'>Required.</span> <span lang="PT-BR" class='c10'>An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i></span> <span class='c10'>Required.</span> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the</span> <span lang="PT-BR" class='c15'>splitter</span> <span class='c15'>the developer want to move</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>MoveTo&nbsp;&nbsp;&nbsp;</i> -&nbsp; An</span> <span class='c10'>integer value that specifies the</span> <span lang="PT-BR" class='c7'>x- or y- coordinate (depending on</span> <span class='c10'>the splitter's</span> <span lang="PT-BR" class='c10'>Orientation property)</span> <span lang="PT-BR" class='c11'>where the splitter will be moved.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>4</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>OpenControl</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Opens</span> <span class='c10'>(shows) a control and docks it to the ActiveX Control</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; <i>Object</i>.</span><b><span class='c10'>OpenControl</span></b> <span class='c10'><i>IdControl [, MaintainSize, Success]</i></span></p>
+
+    <p class="MsoNormal c19"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp;</span> <span class='c10'>Required.</span> <span lang="PT-BR" class='c10'>An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c19"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</span> <i><span class='c10'>IdControl</span></i><i><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;</span></i> <span class='c10'>Required.</span> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the</span> <span class='c11'>control the developer want to open</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c19"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>MaintainSize</i>&nbsp; -&nbsp; Optional. A value that determines whether the method will not change the size and position of the control the developer want to open. The default value is <i>false</i>.</span></p>
+
+    <p class="MsoNormal c19"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Success&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; Optional. A returned value that determines whether the OpenControl method is successful.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>Events</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1.&nbsp;&nbsp; <b>ControlAfterClose</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when a control has</span> <span class='c11'>just</span> <span lang="PT-BR" class='c15'>been closed by the user.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_ControlAfterClose(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the control that has just been closed by the user.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>2.&nbsp;&nbsp; <b>ControlBeforeClose</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs</span> <span class='c10'>after</span> <span lang="PT-BR" class='c10'>the user</span> <span class='c10'>presses a close button of certain control and before the control is closed.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_ControlBeforeClose(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long</span><span class='c10'>, <i>Cancel</i> as Boolean</span><span lang="PT-BR" class='c11'>)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the control that about to be closed.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Cancel</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; A boolean. Setting this argument to <i>true</i> stops the control from closing.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>3.&nbsp;&nbsp; <b>ControlMove</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user is moving a control.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>ControlMove</span><span lang="PT-BR" class='c7'>(ByVal <i>IdControl</i> As Long, ByVal <i>Shift</i> As Integer, ByVal <i>Left</i> As Long, ByVal <i>Top</i> As Long, ByVal <i>Width</i> As Long, ByVal <i>Height</i> As Long)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the control that is being moved by the user.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Shift</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer that corresponds to the state of the SHIFT, CTRL, and ALT keys.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Left</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer indicating the x-coordinate for the left edge of the current position of the rectangle that represents the moving control.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Top</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer indicating the y-coordinate for the top edge of the current position of the rectangle that represents the moving control.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Width</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer indicating the current width of the rectangle that represents the moving control.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Height</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer indicating the current height of the rectangle that represents the moving control.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>4.&nbsp;&nbsp; <b>ControlMoveBegin</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user</span> <span class='c11'>is about to move a control, i.e. the first time the rectangle that represents the moving control occurs.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>ControlMoveBegin</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long, ByVal <i>Shift</i> As Integer)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the</span> <span class='c11'>control that is about to be moved by the user</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Shift</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer that corresponds to the state of the SHIFT, CTRL, and ALT keys.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>5.&nbsp;&nbsp; <b>ControlMoveEnd</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user</span> <span class='c11'>is finished moving a control, i.e. when the rectangle that represents the moving control disappears.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>ControlMoveEnd</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long, ByVal <i>Shift</i> As Integer, ByVal</span> <i><span class='c7'>Moved</span></i> <span class='c7'>As Boolean</span><span lang="PT-BR" class='c10'>)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the control that has just been moved by the user</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Shift</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; An integer that corresponds to the state of the SHIFT, CTRL, and ALT keys.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>Moved</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp; A value that determines whether the control is moved.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>6.&nbsp;&nbsp; <b>SplitterClick</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses and then realeses a mouse button over</span> <span lang="PT-BR" class='c10'>a splitter.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterClick</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>that has just been clicked by the user</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>7</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp; <b>SplitterDblClick</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses and then realeses a mouse button and</span> <span lang="PT-BR" class='c10'>then presses and releases it again over a splitter.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterDblClick</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>that has just been double-clicked by the user</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>8</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp; <b>Splitter</b></span><b><span class='c10'>MouseDown</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses a mouse button over a splitter.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMouseDown</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long,</span> <span class='c10'>ByVal <i>Button</i> As Integer,</span> <span lang="PT-BR" class='c11'>ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>where the user presses a mouse button over</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Down</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>9</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp; <b>Splitter</b></span><b><span class='c10'>MouseMove</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user moves</span> <span class='c11'>a</span> <span lang="PT-BR" class='c11'>mouse over a splitter without</span> <span lang="PT-BR" class='c10'>moving the splitter.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMouseMove</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long,</span> <span class='c10'>ByVal <i>Button</i> As Integer,</span> <span lang="PT-BR" class='c11'>ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>where the user moves a mouse over.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Move</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>10</span><span lang="PT-BR" class='c10'>.&nbsp; <b>Splitter</b></span><b><span class='c10'>MouseUp</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user releases a mouse button over a splitter</span> <span lang="PT-BR" class='c10'>without previously moving the splitter.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMouseUp</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long,</span> <span class='c10'>ByVal <i>Button</i> As Integer,</span> <span lang="PT-BR" class='c11'>ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>where the user releases a mouse button over.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Up</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>11</span><span lang="PT-BR" class='c10'>.&nbsp; <b>Splitter</b></span><b><span class='c10'>Move</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user is moving a splitter</span><span class='c7'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMove</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long, ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>that is being moved by the user.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Move</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>12</span><span lang="PT-BR" class='c10'>.&nbsp; <b>Splitter</b></span><b><span class='c10'>MoveBegin</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user is</span> <span class='c11'>about</span> <span lang="PT-BR" class='c15'>to move a splitter</span><span class='c7'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMoveBegin</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long, ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>that is about to be moved by the user.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Down</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>13</span><span lang="PT-BR" class='c10'>.&nbsp; <b>Splitter</b></span><b><span class='c10'>MoveEnd</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses and then realeses a mouse button over</span> <span lang="PT-BR" class='c10'>a</span> <span class='c10'>control</span> <span lang="PT-BR" class='c10'>title bar</span><span class='c10'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMoveEnd</span><span lang="PT-BR" class='c7'>(ByVal <i>IdSplitter</i> As Long, ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>IdSplitter&nbsp; -&nbsp;</i> A value that uniquely identifies</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>that has just been moved by the user.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Down</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>14</span><span lang="PT-BR" class='c10'>.&nbsp; <b>TitleBarClick</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses and then realeses a mouse button over</span> <span lang="PT-BR" class='c10'>a</span> <span class='c10'>control</span> <span lang="PT-BR" class='c10'>title bar</span><span class='c10'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>TitleBarClick</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the control whose title bar has just been clicked by the user.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>15</span><span lang="PT-BR" class='c10'>.&nbsp; <b>TitleBar</b></span><b><span class='c10'>Dbl</span></b><b><span lang="PT-BR" class='c10'>Click</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses and then realeses a mouse button and</span> <span lang="PT-BR" class='c10'>then presses and releases it again over a</span> <span class='c15'>control</span> <span lang="PT-BR" class='c7'>title bar</span><span class='c7'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>TitleBarDblClick</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the control whose title bar has just been double-clicked by the user.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>16</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBarMouseDown</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user presses a mouse button over a control title</span> <span lang="PT-BR" class='c10'>bar.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMouseDown</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long,</span> <span class='c10'>ByVal <i>Button</i> As Integer,</span> <span lang="PT-BR" class='c11'>ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the</span> <span class='c11'>control that own the title bar where the user presses a mouse button over.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Down</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>17</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBarMouseMove</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user moves</span> <span class='c11'>a</span> <span lang="PT-BR" class='c11'>mouse over a</span> <span class='c15'>control title bar</span> <span lang="PT-BR" class='c12'>without</span> <span lang="PT-BR" class='c10'>moving the</span> <span class='c10'>control</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMouseMove</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long,</span> <span class='c10'>ByVal <i>Button</i> As Integer,</span> <span lang="PT-BR" class='c11'>ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the</span> <span class='c11'>control that own the title bar where the user moves a mouse over.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Down</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>18</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBarMouseUp</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Occurs when the user releases a mouse button over a</span> <span class='c12'>control title bar</span> <span lang="PT-BR" class='c10'>without previously moving the</span> <span class='c11'>control.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Syntax&nbsp; :&nbsp; Private Sub <i>Object</i>_</span><span class='c11'>SplitterMouseUp</span><span lang="PT-BR" class='c7'>(ByVal <i>Id</i></span><i><span class='c10'>Control</span></i> <span lang="PT-BR" class='c10'>As Long,</span> <span class='c10'>ByVal <i>Button</i> As Integer,</span> <span lang="PT-BR" class='c11'>ByVal <i>Shift</i> As Integer, ByVal <i>X</i> As Single, ByVal <i>Y</i> As Single)</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parts&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp; <i>Object&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i> -&nbsp; An object expression that evaluates to a VB</span> <span class='c7'>Control Manager</span> <span lang="PT-BR" class='c10'>object.</span></p>
+
+    <p class="MsoNormal c17"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <i>Id</i></span><i><span class='c10'>Control</span></i><i><span lang="PT-BR" class='c10'>&nbsp; -&nbsp;</span></i> <span lang="PT-BR" class='c10'>A value that uniquely identifies</span> <span class='c11'>the</span> <span class='c11'>control that own the title bar where the user releases a mouse button over.</span></p>
+
+    <p class="MsoNormal c16"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For other parts, see reference for Mouse</span><span class='c7'>Down</span> <span lang="PT-BR" class='c12'>event in MSDN</span> <span class='c10'>Library</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c17"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>Controls Collection</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>A <b>Controls</b> collection in VB Control Manager is a collection whose elements represent each virtual control in a Control Manager object. See the description of <b>Control</b> object in the next section below for the explanation of virtual controls.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>The <b>Controls</b> collection has two properties: <b>Count</b> that specifies the number of elements in the collection and <b>Item</b> that returns a member of the collection. See reference for Collection Object in MSDN Library for the description of how to use the properties.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>The <b>Controls</b> collection also has one method, <b>IsExist</b>, to determine whether certain index that uniquely identifies a virtual control exist in the collection.</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>Control Object</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>A <b>Control</b> object in VB Control Manager is a virtual control used to represent a real control (like TextBox control, Button control, etc.).</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>Instead of using real controls properties directly, VB Control Manager saves the necessary properties plus several custom properties in virtual controls. Furthermore, VB Control Manager works with these virtual controls to manipulate its position, size, etc. and then write it back to the real controls.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>&nbsp;</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>The <b>Control</b> object has 20 properties as follows:</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1.&nbsp;&nbsp;</span> <b><span class='c10'>Bottom</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal bottom edge of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>control and the top edge of</span> <span class='c11'>the related</span> <span lang="PT-BR" class='c7'>Control Manager</span> <span class='c12'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>2</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Closed</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns a value that determines whether the</span> <span class='c7'>virtual</span> <span lang="PT-BR" class='c10'>control is closed.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>3</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Height</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the height of the</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>control.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>4</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Id</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns</span> <span class='c10'>a value that uniquely identifies</span> <span lang="PT-BR" class='c7'>the</span> <span class='c7'>virtual</span> <span lang="PT-BR" class='c10'>control.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>5</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>IdSplBottom</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns</span> <span class='c10'>a value that uniquely identifies</span> <span lang="PT-BR" class='c7'>the</span> <span class='c7'>virtual splitter which its movement will change the value of the virtual control's Bottom property.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>6</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>IdSplLeft</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns</span> <span class='c10'>a value that uniquely identifies</span> <span lang="PT-BR" class='c7'>the</span> <span class='c7'>virtual splitter which its movement will change the value of the virtual control's Left property.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>7</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>IdSplRight</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns</span> <span class='c10'>a value that uniquely identifies</span> <span lang="PT-BR" class='c7'>the</span> <span class='c7'>virtual splitter which its movement will change the value of the virtual control's Right property.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>8</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>IdSplTop</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns</span> <span class='c10'>a value that uniquely identifies</span> <span lang="PT-BR" class='c7'>the</span> <span class='c7'>virtual splitter which its movement will change the value of the virtual control's Top property.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>9</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Left</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal</span> <span class='c7'>left</span> <span lang="PT-BR" class='c12'>edge of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>control and the</span> <span class='c10'>left</span> <span lang="PT-BR" class='c10'>edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c10'>Control Manager</span> <span class='c10'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>10</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>MinHeight</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the minimum height of the virtual control.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>11</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>MinWidth</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the minimum</span> <span class='c10'>width</span> <span lang="PT-BR" class='c10'>of the virtual control.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>12</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Name</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the name of the real control</span> <span class='c15'>that</span> <span lang="PT-BR" class='c7'>th</span><span class='c7'>e</span> <span lang="PT-BR" class='c12'>virtual control</span> <span lang="PT-BR" class='c10'>represents.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>13</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Right</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal</span> <span class='c7'>right</span> <span lang="PT-BR" class='c12'>edge of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>control and the</span> <span class='c10'>left</span> <span lang="PT-BR" class='c10'>edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c10'>Control Manager</span> <span class='c10'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1</span><span class='c10'>4</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBar_CloseVisible</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Returns/s</span><span lang="PT-BR" class='c10'>ets a value that determines whether a close button in</span> <span class='c7'>the virtual</span> <span class='c7'>control</span> <span lang="PT-BR" class='c10'>title</span> <span lang="PT-BR" class='c10'>bar is visible</span><span class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1</span><span class='c10'>5</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBar_Height</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Returns the height of the virtual control title bars.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1</span><span class='c10'>6</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>TitleBar_Visible</span></b></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class='c10'>Returns/sets a value that determines whether the virtual control title bar is visible.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>17</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Top</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal</span> <span class='c7'>top</span> <span lang="PT-BR" class='c12'>edge of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>control and the</span> <span class='c10'>top</span> <span lang="PT-BR" class='c10'>edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c10'>Control Manager</span> <span class='c10'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>18</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Width</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>width</span> <span lang="PT-BR" class='c10'>of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>control.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>19</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Xc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the x-coordinate of the</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>control center.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>20</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Yc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>y</span><span lang="PT-BR" class='c10'>-coordinate of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>control center.</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>Splitters Collection</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>A <b>Splitters</b> collection in VB Control Manager is a collection whose elements represent each virtual splitter in a Control Manager object. See the description of <b>Splitter</b> object in the next section below for the explanation of virtual splitters.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>The <b>Splitters</b> collection has two properties: <b>Count</b> that specifies the number of elements in the collection and <b>Item</b> that returns a member of the collection. See reference for Collection Object in MSDN Library for the description of how to use the properties.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>The <b>Controls</b> collection also has one method, <b>IsExist</b>, to determine whether certain index that uniquely identifies a virtual splitter exist in the collection.</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span class='c8'>Splitter Object</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>A <b>Splitter</b> object in VB Control Manager is a virtual splitter used to represent a real splitter.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>VB Control Manager uses PictureBox control as a splitter. Instead of using the PictureBox properties directly, VB Control Manager saves the necessary properties plus several custom properties in virtual splitters. Furthermore, VB Control Manager works with these virtual splitters to manipulate its position, size, etc. and then write it back to the PictureBox controls.</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>&nbsp;</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>The <b>Splitter</b> object has 27 properties as follows:</span></p>
+
+    <p class="MsoNormal c6"><span class='c7'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>1.&nbsp;&nbsp; <b>ActiveColor</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the background color used to display the splitter when the user moves it in none live update mode.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>2.&nbsp;&nbsp; <b>BackColor</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets the background color used to display</span> <span class='c7'>the</span> <span lang="PT-BR" class='c12'>splitter.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>3</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Bottom</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal bottom edge of the</span> <span class='c10'>virtual splitter</span> <span lang="PT-BR" class='c10'>and the top edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c11'>Control Manager</span> <span class='c15'>object</span><span lang="PT-BR" class='c7'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>4</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp; <b>ClipCursor</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether the mouse pointer is confined to</span> <span class='c10'>the virtual splitter</span> <span lang="PT-BR" class='c10'>minimum and maximum x- and y-coordinate when the user moves</span> <span class='c12'>the</span> <span lang="PT-BR" class='c10'>splitter.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>5</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp; <b>Enable</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether</span> <span class='c15'>the</span> <span lang="PT-BR" class='c7'>splitter</span> <span class='c7'>is</span> <span lang="PT-BR" class='c12'>movable.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>6</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Height</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the height of the</span> <span class='c11'>virtual splitter</span><span lang="PT-BR" class='c7'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>7</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>Id</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns</span> <span class='c10'>a value that uniquely identifies</span> <span lang="PT-BR" class='c7'>the</span> <span class='c7'>virtual splitter</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>8</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>IdsCtlBottom</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>controls which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span lang="PT-BR" class='c10'>down-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>9</span><span lang="PT-BR" class='c10'>.&nbsp;&nbsp;</span> <b><span class='c10'>IdsCtlLeft</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>controls which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span class='c10'>left</span><span lang="PT-BR" class='c10'>-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>10</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>IdsCtlRight</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>controls which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span class='c10'>right</span><span lang="PT-BR" class='c10'>-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>11</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>IdsCtlTop</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>controls which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span class='c10'>up</span><span lang="PT-BR" class='c10'>-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>12</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>IdsSplBottom</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual splitters</span> <span lang="PT-BR" class='c7'>which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span lang="PT-BR" class='c10'>down-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>13</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>IdsSplLeft</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all virtual splitters</span> <span lang="PT-BR" class='c12'>which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span class='c10'>left</span><span lang="PT-BR" class='c10'>-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>14</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>IdsSplRight</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual splitters</span> <span lang="PT-BR" class='c7'>which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span class='c10'>right</span><span lang="PT-BR" class='c10'>-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>15</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>IdsSplTop</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>Id collection</span> <span lang="PT-BR" class='c11'>of</span> <span class='c11'>all</span> <span class='c11'>virtual splitters</span> <span lang="PT-BR" class='c7'>which are effected by the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>'s</span> <span class='c10'>up</span><span lang="PT-BR" class='c10'>-mo</span><span class='c10'>vement.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>16</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Left</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal</span> <span class='c7'>left</span> <span lang="PT-BR" class='c12'>edge of the</span> <span class='c10'>virtual splitter</span> <span lang="PT-BR" class='c10'>and the</span> <span class='c10'>left</span> <span lang="PT-BR" class='c10'>edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c10'>Control Manager</span> <span class='c10'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>17</span><span lang="PT-BR" class='c10'>.&nbsp; <b>LiveUpdate</b></span></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns/sets a value that determines whether the controls should be resized as</span> <span class='c10'>the</span> <span lang="PT-BR" class='c10'>splitter is moved.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>18</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>MaxXc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the maximum x-coordinate of the</span> <span class='c15'>virtual</span> <span lang="PT-BR" class='c7'>splitter</span><span class='c7'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>19</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>MaxYc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the maximum</span> <span class='c10'>y</span><span lang="PT-BR" class='c10'>-coordinate of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>20</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>MinXc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>minimum</span><span lang="PT-BR" class='c10'>x-coordinate of the</span> <span class='c11'>virtual</span> <span lang="PT-BR" class='c15'>splitter</span><span class='c15'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>21</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>MinYc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>minimum</span> <span class='c10'>y</span><span lang="PT-BR" class='c10'>-coordinate of the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter</span><span class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>22</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Orientation</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>virtual</span> <span lang="PT-BR" class='c10'>splitter mo</span><span class='c10'>vement</span> <span class='c10'>direction.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>23</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Right</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal</span> <span class='c7'>right</span> <span lang="PT-BR" class='c12'>edge of the</span> <span class='c10'>virtual splitter</span> <span lang="PT-BR" class='c10'>and the</span> <span class='c10'>left</span> <span lang="PT-BR" class='c10'>edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c10'>Control Manager</span> <span class='c10'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>24</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Top</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the distance between the internal</span> <span class='c7'>top</span> <span lang="PT-BR" class='c12'>edge of the</span> <span class='c10'>virtual splitter</span> <span lang="PT-BR" class='c10'>and the</span> <span class='c10'>top</span> <span lang="PT-BR" class='c10'>edge of</span> <span class='c10'>the related</span> <span lang="PT-BR" class='c10'>Control Manager</span> <span class='c10'>object</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>&nbsp;</span></p>
+
+    <p class="MsoNormal c14"><span class='c10'>25</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Width</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>width</span> <span lang="PT-BR" class='c10'>of the</span> <span class='c10'>virtual splitter</span><span lang="PT-BR" class='c10'>.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>26</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Xc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the x-coordinate of the</span> <span class='c11'>virtual splitter</span> <span lang="PT-BR" class='c7'>center.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c14"><span class='c10'>27</span><span lang="PT-BR" class='c10'>.&nbsp;</span> <b><span class='c10'>Yc</span></b> <i><span class='c10'>(read-only)</span></i></p>
+
+    <p class="MsoNormal c14"><span lang="PT-BR" class='c10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Returns the</span> <span class='c10'>y</span><span lang="PT-BR" class='c10'>-coordinate of the</span> <span class='c10'>virtual splitter</span> <span lang="PT-BR" class='c11'>center.</span></p>
+
+    <br>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>Use and Distribution</span></p>
+
+    <p class="MsoNormal c14"><b><span class='c20'>&bull;</span></b><span class='c20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span lang="PT-BR" class='c10'>This control is freeware and opensource.</span></p>
+
+    <p class="MsoNormal c14"><b><span class='c20'>&bull;</span></b><span class='c20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span lang="PT-BR" class='c10'>You may freely modify the source only to be used on your own program.</span></p>
+
+    <p class="MsoNormal c14"><b><span class='c20'>&bull;</span></b><span class='c20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span lang="PT-BR" class='c10'>You may NOT modify the source and/or publish it as your work without permission from the author.</span></p>
+
+    <p class="MsoNormal c14"><b><span class='c20'>&bull;</span></b><span class='c20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span lang="PT-BR" class='c10'>The author provides the control "as is" with no warranty of any kind.</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>&nbsp;</span></p>
+
+    <p class="MsoNormal c9"><span lang="PT-BR" class='c13'>The Author</span></p>
+
+    <p class="MsoNormal c6"><span lang="PT-BR" class='c10'>Theo Zacharias (theo_yz@yahoo.com)</span></p>
+
+    <p class="MsoNormal c6"><span lang="PT-BR" class='c10'>&nbsp;</span></p>
+  </div>
+</body>
+</html>
